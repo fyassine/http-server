@@ -9,7 +9,7 @@ int main(void)
 {
     struct sockaddr_in address;
     int addrlen = sizeof(address);
-    char *message = "message received by server\n";
+    char *message = "HTTP/1.1 200 OK\nContent-Type: text/plain\nContent-Length: 12\n\nHello world!";
     int opt = 1;
     
     //socket creation
@@ -71,7 +71,7 @@ int main(void)
 
         send(socket_client_ret, message, strlen(message), 0);
         
-        printf("confirmation sent !\n");
+        printf("response sent !\n");
 
         close(socket_client_ret);
     }
